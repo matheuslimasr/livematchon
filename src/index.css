@@ -1,0 +1,167 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&display=swap');
+
+@layer base {
+  :root {
+    --background: 0 0% 7%;
+    --foreground: 0 0% 95%;
+
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 0 75% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 30% 15%;
+    --secondary-foreground: 0 50% 80%;
+
+    --muted: 0 10% 15%;
+    --muted-foreground: 0 10% 55%;
+
+    --accent: 15 80% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 15% 18%;
+    --input: 0 15% 18%;
+    --ring: 0 75% 50%;
+
+    --radius: 1rem;
+
+    /* Premium red palette */
+    --coral: 0 75% 50%;
+    --coral-light: 0 70% 60%;
+    --coral-dark: 0 80% 38%;
+    --rose: 345 65% 50%;
+    --peach: 15 70% 55%;
+    --cream: 0 10% 12%;
+    
+    /* Premium gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(0 80% 45%) 0%, hsl(0 90% 55%) 50%, hsl(15 80% 50%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(0 75% 50% / 0.15) 0%, hsl(0 0% 7%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 12%) 0%, hsl(0 20% 10%) 100%);
+    
+    /* Premium shadows */
+    --shadow-soft: 0 4px 30px -2px hsl(0 80% 50% / 0.25);
+    --shadow-glow: 0 0 50px hsl(0 80% 50% / 0.35);
+    --shadow-card: 0 10px 40px -10px hsl(0 0% 0% / 0.5);
+
+    --sidebar-background: 0 0% 8%;
+    --sidebar-foreground: 0 0% 85%;
+    --sidebar-primary: 0 75% 50%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 0 15% 14%;
+    --sidebar-accent-foreground: 0 0% 90%;
+    --sidebar-border: 0 10% 16%;
+    --sidebar-ring: 0 75% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Poppins', sans-serif;
+  }
+}
+
+@layer utilities {
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+  
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .gradient-card {
+    background: var(--gradient-card);
+  }
+  
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+  
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  
+  .text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .font-display {
+    font-family: 'Playfair Display', serif;
+  }
+
+  .glass {
+    background: hsl(0 0% 100% / 0.05);
+    backdrop-filter: blur(12px);
+    border: 1px solid hsl(0 0% 100% / 0.08);
+  }
+
+  .glass-card {
+    background: hsl(0 0% 100% / 0.03);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(0 75% 50% / 0.1);
+  }
+}
+
+/* Floating hearts animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  50% { transform: translateY(-20px) rotate(10deg); opacity: 0.8; }
+}
+
+@keyframes float-reverse {
+  0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
+  50% { transform: translateY(20px) rotate(-10deg); opacity: 1; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px hsl(0 80% 50% / 0.4); }
+  50% { box-shadow: 0 0 50px hsl(0 80% 50% / 0.7); }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.animate-float { animation: float 4s ease-in-out infinite; }
+.animate-float-reverse { animation: float-reverse 5s ease-in-out infinite; }
+.animate-float-slow { animation: float 6s ease-in-out infinite; }
+.animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+.animate-slide-up { animation: slide-up 0.6s ease-out forwards; }
+.animate-shimmer {
+  background-size: 200% auto;
+  animation: shimmer 3s linear infinite;
+}
+
+.animation-delay-200 { animation-delay: 0.2s; }
+.animation-delay-400 { animation-delay: 0.4s; }
+.animation-delay-600 { animation-delay: 0.6s; }
